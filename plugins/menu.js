@@ -4,57 +4,58 @@ let fetch = require('node-fetch')
 let levelling = require('../lib/levelling')
 const thumb = fs.readFileSync('./src/thumb.jpeg')
 let tags = {
-  'main': '🄼🄰🄸🄽',
-  'game': '🄶🄰🄼🄴',
-  'xp': '🄴🅇🄿 & 🄻🄸🄼🄸🅃',
-  'sticker': '🅂🅃🄸🄲🄺🄴🅁',
-  'kerang': '🄺🄴🅁🄰🄽🄶 🄰🄹🄰🄸🄱',
-  'quotes': '🅀🅄🄾🅃🄴🅂',
-  'admin': '🄰🄳🄼🄸🄽',
-  'group': '🄶🅁🄾🅄🄿',
-  'premium': '🄿🅁🄴🄼🄸🅄🄼',
-  'internet': '🄸🄽🅃🄴🅁🄽🄴🅃',
-  'anonymous': '🄰🄽🄾🄽🅈🄼🄾🅄🅂 🄲🄷🄰🅃',
-  'nulis': '🄼🄰🄶🄴🅁 🄽🅄🄻🄸🅂 & 🄻🄾🄶🄾',
-  'downloader': '🄳🄾🅆🄽🄻🄾🄰🄳🄴🅁',
-  'tools': '🅃🄾🄾🄻🅂',
-  'fun': '🄵🅄🄽',
-  'database': '🄳🄰🅃🄰🄱🄰🅂🄴',
-  'vote': '🅅🄾🅃🄸🄽🄶',
-  'absen': '🄰🄱🅂🄴🄽',
-  'quran': '🄰🄻 🅀🅄🅁 🄰🄽',
-  'jadibot': '🄹🄰🄳🄸 🄱🄾🅃',
-  'owner': '🄾🅆🄽🄴🅁',
-  'host': '🄷🄾🅂🅃',
-  'advanced': '🄰🄳🅅🄰🄽🄲🄴',
-  'info': '🄸🄽🄵🄾',
-  '': '🄽🄾 🄲🄰🅃🄴🄶🄾🅁🅈',
+  'main': 'ᴍᴀɪɴ',
+  'game': 'ɢᴀᴍᴇ',
+  'xp': 'ᴇxᴘ / ʟɪᴍɪᴛ',
+  'sticker': 'sᴛɪᴄᴋᴇʀ',
+  'kerang': 'ᴋᴇʀᴀɴɢ ᴀᴊᴀɪʙ',
+  'quotes': 'ǫᴜᴏᴛᴇs',
+  'admin': 'ᴀᴅᴍɪɴ',
+  'group': 'ɢʀᴏᴜᴘ',
+  'premium': 'ᴘʀᴇᴍɪᴜᴍ',
+  'internet': 'ɪɴᴛᴇʀɴᴇᴛ',
+  'anonymous': 'ᴀɴᴏᴍᴏᴜs ᴄʜᴀᴛ',
+  'nulis': 'ᴍᴀɢᴇʀ ɴᴜʟɪs & ʟᴏɢᴏ',
+  'downloader': 'ᴅᴏᴡɴʟᴏᴀᴅᴇʀ',
+  'tools': 'ᴛᴏʟʟs',
+  'fun': 'ғᴜɴ',
+  'database': 'ᴅᴀᴛᴀʙᴀsᴇ',
+  'vote': 'ᴠᴏᴛɪɴɢ',
+  'absen': 'ᴀʙsᴇɴ',
+  'quran': 'ᴀʟ ǫᴜʀᴀɴ',
+  'jadibot': 'ᴊᴀᴅɪʙᴏᴛ',
+  'owner': 'ᴏᴡɴᴇʀ',
+  'host': 'ʜᴏsᴛ',
+  'advanced': 'ᴀᴅᴠᴀɴᴄᴇ',
+  'info': 'ɪɴғᴏ',
+  '': 'ɴᴏ ᴄᴀᴛᴇɢᴏʀʏ',
 }
 const defaultMenu = {
   before: `
-╭─『 %me 』
-│ Hai, %name!
-│
-│ Tersisa *%limit Limit*
-│ Role *%role*
-│ Level *%level (%exp / %maxexp)* [%xp4levelup lagi untuk levelup]
-│ %totalexp XP in Total
-│ 
-│ Tanggal: *%week %weton, %date*
-│ Tanggal Islam: *%dateIslamic*
-│ Waktu: *%time*
-│
-│ Uptime: *%uptime (%muptime)*
-│ Database: %rtotalreg of %totalreg
-│ Script :
-│ https://github.com/LitRHap/wabot
-│ Instagram :
-│ https://instagram.com/loli._.school
-╰────
+┏━━━ *⌜ %me ⌟* ━━━
+┃
+┃◇ _Hai, %name!_
+┃◇ _Tersisa *%limit Limit*_
+┃◇ _Role *%role*_
+┃◇ _Level *%level (%exp / %maxexp)* [%xp4levelup lagi untuk levelup]_
+┃◇ _%totalexp XP in Total_
+┃ 
+┃◇ _Tanggal: *%week %weton, %date*_
+┃◇ _Tanggal Islam: *%dateIslamic*_
+┃◇ _Waktu: *%time*_
+┃
+┃◇ _Uptime: *%uptime (%muptime)*_
+┃◇ _Database: %rtotalreg of %totalreg_
+┃◇ _Script :_
+┃◇ _https://github.com/rasssya76/_
+┃◇ _Instagram :_
+┃◇ _https://instagram.com/_
+┃
+┗━━━━━━━━━━━━━━━
 %readmore`.trimStart(),
-  header: '┏┉┄┈┈┈『%category』┈┈┈┈┈┉┓',
-  body: '┆➜ %cmd %islimit %isPremium',
-  footer: '└┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n',
+  header: '┏━━━ ⌜*%category*⌟ ━━━',
+  body: '┃◇%cmd %islimit %isPremium',
+  footer: '┗━━━━━━━━━━━━━━━━━━━\n',
   after: `
 *%npmname@^%version*
 ${'```%npmdesc```'}
