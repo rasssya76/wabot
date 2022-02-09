@@ -32,30 +32,28 @@ let tags = {
 }
 const defaultMenu = {
   before: `
-┏━━━ *⌜ %me ⌟* ━━━
-┃
-┃◇ _Hai, %name!_
-┃◇ _Tersisa *%limit Limit*_
-┃◇ _Role *%role*_
-┃◇ _Level *%level (%exp / %maxexp)* [%xp4levelup lagi untuk levelup]_
-┃◇ _%totalexp XP in Total_
-┃ 
-┃◇ _Tanggal: *%week %weton, %date*_
-┃◇ _Tanggal Islam: *%dateIslamic*_
-┃◇ _Waktu: *%time*_
-┃
-┃◇ _Uptime: *%uptime (%muptime)*_
-┃◇ _Database: %rtotalreg of %totalreg_
-┃◇ _Script :_
-┃◇ _https://github.com/rasssya76/_
-┃◇ _Instagram :_
-┃◇ _https://instagram.com/_
-┃
-┗━━━━━━━━━━━━━━━
+     *⌜ %me ⌟* 
+ 
+    _Hai, %name!_
+    _Tersisa *%limit Limit*_
+    _Role *%role*_
+    _Level *%level (%exp / %maxexp)* [%xp4levelup lagi untuk levelup]_
+    _%totalexp XP in Total_
+  
+    _Tanggal: *%week %weton, %date*_
+    _Tanggal Islam: *%dateIslamic*_
+    _Waktu: *%time*_
+ 
+    _Uptime: *%uptime (%muptime)*_
+    _Database: %rtotalreg of %totalreg_
+    _Script :_
+    _https://github.com/rasssya76/_
+    _Instagram :_
+    _https://instagram.com/_
 %readmore`.trimStart(),
   header: '┏━━━ ⌜*%category*⌟ ━━━',
-  body: '┃◇%cmd %islimit %isPremium',
-  footer: '┗━━━━━━━━━━━━━━━━━━━\n',
+  body: '┃◆ *%cmd* %islimit %isPremium',
+  footer: '┗\n',
   after: `
 *%npmname@^%version*
 ${'```%npmdesc```'}
@@ -156,23 +154,9 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
     //Iya bang sy nub
-    const reply = {
-    key: {
-        participant: '0@s.whatsapp.net'
-    },
-    message: {
-        orderMessage: {
-            itemCount: 1122334455,
-            itemCoun: 404,
-            surface: 404,
-            message: `© ${conn.user.name}`,
-            orderTitle: 'B',
-            thumbnail: thumb,
-            sellerJid: '0@s.whatsapp.net'
-        }
-    }
-}
-let fkon = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: '16504228206@s.whatsapp.net' } : {}) }, message: { contactMessage: { displayName: `Relldev`, vcard: `BEGIN:VCARD\nVERSION:3.0\nN:;a,;;;\nFN: Rlxfly UwU\nitem1.TEL;waid=6283820073017:6283820073017\nitem1.X-ABLabel:Ponsel\nEND:VCARD`}}}
+    const reply = { key: { fromMe: false,"participant":"0@s.whatsapp.net",   "remoteJid": "6289523258649-1604595598@g.us"  }, "message": {orderMessage: {itemCount: 2021,status: 200, thumbnail: fs.readFileSync(`./src/Ah5.jpeg`),, surface: 200, message: `© ${conn.user.name}`, orderTitle: 'rama', sellerJid: '0@s.whatsapp.net'}},contextInfo: {"forwardingScore":999,"isForwarded":true},sendEphemeral: true}      
+ 
+let fkon = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: '16504228206@s.whatsapp.net' } : {}) }, message: { contactMessage: { displayName: `BOT`, vcard: `BEGIN:VCARD\nVERSION:3.0\nN:;a,;;;\nFN: Conxxx\nitem1.TEL;waid=6281515589573:6281515589573\nitem1.X-ABLabel:Ponsel\nEND:VCARD`}}}
 conn.send3ButtonImg(m.chat, thumb, `Hi! Im ${conn.user.name}\n\nHere my menu...`, text.trim(), 'ping', '.ping', 'owner', '-owner', 'donasi', '.donasi', reply)
   } catch (e) {
     conn.reply(m.chat, 'Maaf, menu sedang error', m)
